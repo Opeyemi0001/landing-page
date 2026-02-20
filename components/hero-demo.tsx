@@ -92,7 +92,6 @@ export function HeroDemo() {
     setTypedChars(0);
     scheduleNext(() => setPhase("typing"), 500);
     return () => clearAllTimeouts();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sceneIndex]);
 
   // Typewriter effect
@@ -103,7 +102,6 @@ export function HeroDemo() {
     } else {
       scheduleNext(() => setPhase("user"), 300);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase, typedChars]);
 
   // Phase transitions
@@ -135,7 +133,6 @@ export function HeroDemo() {
         }, 600);
         break;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
 
   // Reasoning steps one by one
@@ -146,7 +143,6 @@ export function HeroDemo() {
     } else {
       scheduleNext(() => setPhase("response"), 400);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase, visibleSteps]);
 
   const showInput = phase !== "idle";
@@ -191,7 +187,7 @@ export function HeroDemo() {
           <div
             className={cn(
               "rounded-xl border border-border/50 bg-muted/20 p-4 transition-all duration-300 shrink-0",
-              showInput && phase !== "idle" ? "border-primary/30 bg-primary/[0.03]" : ""
+              showInput ? "border-primary/30 bg-primary/[0.03]" : ""
             )}
           >
             <div className="flex items-center gap-3">
