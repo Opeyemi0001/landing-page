@@ -121,6 +121,14 @@ export function Navbar() {
             {/* Separator */}
             <div className="hidden md:block w-px h-6 bg-border/50" />
 
+            {/* Theme Toggle - Desktop */}
+            <div className="hidden md:flex items-center pl-1">
+              <ThemeToggle />
+            </div>
+
+            {/* Separator */}
+            <div className="hidden md:block w-px h-6 bg-border/50" />
+
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center pl-1 pr-1">
               <Button
@@ -205,6 +213,11 @@ export function Navbar() {
               );
             })}
           </nav>
+
+          {/* Theme Toggle - Mobile */}
+          <div className="mt-2">
+            <ThemeToggle />
+          </div>
 
           {/* Mobile CTA */}
           <Button
