@@ -1,16 +1,18 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Geist, Inter } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geist = Geist({
   subsets: ["latin"],
+  display: "swap",
   variable: "--font-geist",
 });
-
+const _geistMono = Geist_Mono({ subsets: ["latin"], display: "swap" });
 const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
   variable: "--font-inter",
 });
 
