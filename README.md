@@ -48,7 +48,8 @@ IntMoney is an AI-powered wallet that lets you send, receive, swap, and manage f
    - Click the "Fork" button at [github.com/int-money/landing-page](https://github.com/int-money/landing-page)
    - This creates your own copy to work on
 
-2. **Clone your fork** (not the original repo)
+
+2. **Clone your fork**
 
    ```bash
    git clone https://github.com/YOUR_USERNAME/landing-page.git
@@ -61,7 +62,13 @@ IntMoney is an AI-powered wallet that lets you send, receive, swap, and manage f
    pnpm install
    ```
 
-4. **Start the development server**
+4. **Copy environment variables**
+
+   ```bash
+   cp .env.example .env.local
+   ```
+
+5. **Start the development server**
 
    ```bash
    pnpm dev
@@ -115,14 +122,15 @@ landing-page/
 
 ## Available Scripts
 
-| Command       | Description               |
-| ------------- | ------------------------- |
-| `pnpm dev`    | Start development server  |
-| `pnpm build`  | Build for production      |
-| `pnpm start`  | Start production server   |
-| `pnpm lint`   | Run ESLint                |
-| `pnpm format` | Format code with Prettier |
-| `pnpm test`   | Run tests                 |
+| Command             | Description                      |
+| ------------------- | -------------------------------- |
+| `pnpm dev`          | Start development server         |
+| `pnpm build`        | Build for production             |
+| `pnpm start`        | Start production server          |
+| `pnpm lint`         | Run ESLint                       |
+| `pnpm format`       | Format code with Prettier        |
+| `pnpm format:check` | Check formatting without writing |
+| `pnpm test`         | Run tests                        |
 
 ## Contributing
 
@@ -151,7 +159,17 @@ All commits must follow the [Conventional Commits](https://www.conventionalcommi
 
 **Types:** `feat`, `fix`, `refactor`, `docs`, `style`, `test`, `chore`, `perf`, `ci`
 
-Each commit = **one logical change**. No bundling unrelated changes.
+| Type       | When to use                                             |
+| ---------- | ------------------------------------------------------- |
+| `feat`     | A new feature                                           |
+| `fix`      | A bug fix                                               |
+| `refactor` | Code change that neither fixes a bug nor adds a feature |
+| `docs`     | Documentation changes                                   |
+| `style`    | Formatting, missing semicolons, etc. (not CSS changes)  |
+| `test`     | Adding or updating tests                                |
+| `chore`    | Maintenance tasks (deps, config, CI)                    |
+| `perf`     | Performance improvements                                |
+| `ci`       | CI/CD pipeline changes                                  |
 
 **Examples:**
 
@@ -169,7 +187,28 @@ refactor(button): extract common styles to atom
 4. **Push to your fork**
 5. **Open a PR** with a screen recording (if UI changes)
 
-For detailed guidelines, contribution checklist, and issue labels, see [CONTRIBUTING.md](CONTRIBUTING.md).
+PRs with UI changes that do not include a screen recording will not be reviewed.
+
+### Issue Labels
+
+| Label              | Meaning                                   |
+| ------------------ | ----------------------------------------- |
+| `stellar-wave`     | Part of the open-source wave initiative   |
+| `good first issue` | Great starting point for new contributors |
+| `enhancement`      | New feature or improvement                |
+| `bug`              | Something isn't working                   |
+
+### PR Checklist
+
+Before submitting your PR, verify:
+
+- [ ] Code follows Atomic Design structure (atoms → molecules → organisms → templates)
+- [ ] Commits follow Conventional Commits format
+- [ ] Each commit is atomic (one logical change)
+- [ ] `pnpm lint` passes
+- [ ] `pnpm build` succeeds
+- [ ] Screen recording attached (required for UI changes)
+- [ ] Issue number linked in PR description
 
 ## Customization
 
