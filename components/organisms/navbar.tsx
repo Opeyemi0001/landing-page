@@ -6,7 +6,7 @@ import { useActiveSection } from "@/hooks/use-active-section";
 import { Menu, X, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { ThemeToggle } from "@/components/atoms/theme-toggle";
+import ThemeToggle from "@/components/atoms/theme-toggle";
 import { useWaitlist } from "@/components/providers/waitlist-provider";
 
 const NAV_LINKS = [
@@ -21,7 +21,6 @@ export function Navbar() {
   const [hoveredLink, setHoveredLink] = useState("");
   const activeSection = useActiveSection(["features", "how-it-works", "ecosystem"]);
   const { openWaitlist } = useWaitlist();
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -142,13 +141,17 @@ export function Navbar() {
               <Menu
                 className={cn(
                   "h-4 w-4 absolute transition-all duration-300",
-                  isMobileMenuOpen ? "opacity-0 rotate-90 scale-0" : "opacity-100 rotate-0 scale-100"
+                  isMobileMenuOpen
+                    ? "opacity-0 rotate-90 scale-0"
+                    : "opacity-100 rotate-0 scale-100"
                 )}
               />
               <X
                 className={cn(
                   "h-4 w-4 absolute transition-all duration-300",
-                  isMobileMenuOpen ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-0"
+                  isMobileMenuOpen
+                    ? "opacity-100 rotate-0 scale-100"
+                    : "opacity-0 -rotate-90 scale-0"
                 )}
               />
             </button>
@@ -203,7 +206,10 @@ export function Navbar() {
           <Button
             size="lg"
             className="rounded-full px-10 py-6 text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 mt-4"
-            onClick={() => {setIsMobileMenuOpen(false); openWaitlist(); }}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              openWaitlist();
+            }}
           >
             Join the Waitlist
             <ChevronRight className="ml-2 h-5 w-5" />
@@ -218,4 +224,3 @@ export function Navbar() {
     </>
   );
 }
-
